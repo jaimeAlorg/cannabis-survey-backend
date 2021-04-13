@@ -20,14 +20,17 @@ App.use(
 );
 App.use(cors());
 
-var allowCrossDomain = function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
+app.use(function (req, res, next) {
+    res.header(
+        "Access-Control-Allow-Origin",
+        "https://jaimealorg-cannabis-survey-frontend.zeet.app/"
+    ); // update to match the domain you will make the request from
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
     next();
-};
-
-App.use(allowCrossDomain);
+});
 
 App.use("/form", formRouter);
 App.use("/user", userRouter);
