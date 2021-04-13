@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const formRouter = require("./routes/formRoutes");
+const userRouter = require("./routes/userRoutes");
 
 require("dotenv").config();
 
@@ -20,6 +21,7 @@ app.use(
 app.use(cors());
 
 app.use("/form", formRouter);
+app.use("/user", userRouter);
 
 const PORT = process.env.PORT || 8080;
 

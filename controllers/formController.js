@@ -1,22 +1,5 @@
 const { formModel, testModel } = require("../models/formModel");
 
-const postTest = async (req, res) => {
-    const { test, prueba } = req.body;
-    console.log(test, prueba);
-
-    try {
-        const newTest = testModel({ test, prueba });
-        savedTest = await newTest.save();
-        console.log(savedTest);
-        res.json(newTest);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-};
-
-//module.exports = { postTest };
-
-/*
 const getFormData = async (req, res) => {
     try {
         const data = await formModel.find();
@@ -25,20 +8,36 @@ const getFormData = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 };
-*/
 
 const postFormData = async (req, res) => {
     //Get the data from the http request
-    const { date, price, quantity, city, source, reason } = req.body;
+    const {
+        fecha,
+        precio,
+        derivado,
+        calidad,
+        cantidad,
+        comunidad,
+        provincia,
+        proveedor,
+        motivo,
+        frecuencia,
+        genero,
+    } = req.body;
     //Create Post From
 
     const newPostForm = new formModel({
-        date,
-        price,
-        quantity,
-        city,
-        source,
-        reason,
+        fecha,
+        precio,
+        cantidad,
+        derivado,
+        calidad,
+        comunidad,
+        provincia,
+        proveedor,
+        motivo,
+        frecuencia,
+        genero,
     });
 
     try {
@@ -51,4 +50,4 @@ const postFormData = async (req, res) => {
     }
 };
 
-module.exports = { postTest, postFormData };
+module.exports = { getFormData, postFormData };

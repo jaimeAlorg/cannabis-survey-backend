@@ -1,20 +1,19 @@
 const mongoose = require("mongoose");
 
 const formSchema = mongoose.Schema({
-    date: { type: Date, default: Date.now, required: true },
-    price: Number,
-    quantity: Number,
-    city: String,
-    source: String,
-    reason: String,
-});
-
-const testSchema = mongoose.Schema({
-    test: String,
-    prueba: String,
+    fecha: { type: Date, default: Date.now, required: true },
+    precio: { type: Number, required: true },
+    cantidad: { type: Number, required: true },
+    derivado: { type: String, required: true },
+    calidad: { type: String, required: true },
+    comunidad: { type: String, required: true },
+    provincia: { type: String, required: true },
+    proveedor: { type: String, required: true },
+    motivo: { type: String, required: true },
+    frecuencia: { type: String },
+    genero: { type: String },
 });
 
 const formModel = mongoose.model("formModel", formSchema);
-const testModel = mongoose.model("testModel", testSchema);
 
-module.exports = { formModel, testModel };
+module.exports = { formModel };
