@@ -6,22 +6,22 @@ const userRouter = require("./routes/userRoutes");
 
 require("dotenv").config();
 
-const app = express();
+const App = express();
 
-app.use(
+App.use(
     express.urlencoded({
         extended: true,
     })
 );
-app.use(
+App.use(
     express.json({
         limit: "50mb",
     })
 );
-app.use(cors());
+App.use(cors());
 
-app.use("/form", formRouter);
-app.use("/user", userRouter);
+App.use("/form", formRouter);
+App.use("/user", userRouter);
 
 const PORT = process.env.PORT || 8080;
 
@@ -31,7 +31,7 @@ mongoose
         useUnifiedTopology: true,
     })
     .then(() =>
-        app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`))
+        App.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`))
     )
     .catch((error) => console.log(error.message));
 
