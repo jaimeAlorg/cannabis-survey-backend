@@ -20,7 +20,7 @@ App.use(
 );
 App.use(cors());
 
-app.use(function (req, res, next) {
+App.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
         "https://jaimealorg-cannabis-survey-frontend.zeet.app/"
