@@ -1,4 +1,4 @@
-const { formModel, testModel } = require("../models/formModel");
+const { formModel } = require("../models/formModel");
 
 const getFormData = async (req, res) => {
     try {
